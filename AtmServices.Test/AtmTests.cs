@@ -28,7 +28,49 @@ public class AtmTests
 
         Assert.True(result);
 
-        Assert.Equal(65, testAtm.getBalance());
+        Assert.Equal(75, testAtm.getBalance());
+
+    }
+
+    [Fact]
+
+    public void Test_Withdraw_Fail()
+
+    {
+
+        var result = testAtm.withdraw(125);
+
+        Assert.False(result);
+
+        Assert.Equal(100, testAtm.getBalance());
+
+    }
+
+    [Fact]
+
+    public void Test_Deposit()
+
+    {
+
+        var result = testAtm.deposit(25);
+
+        Assert.True(result);
+
+        Assert.Equal(125, testAtm.getBalance());
+
+    }
+
+    [Fact]
+
+    public void Test_Deposit_Fail()
+
+    {
+
+        var result = testAtm.deposit(-1);
+
+        Assert.False(result);
+
+        Assert.Equal(100, testAtm.getBalance());
 
     }
 
